@@ -5,7 +5,7 @@ import { TextComponent } from './text.component.js'
 export class MessageComponent extends HTML {
   message = new MessageModel()
 
-  constructor(message = new MessageModel()) {
+  constructor({ message = new MessageModel() } = {}) {
     super()
     this.message = message
   }

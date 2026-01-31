@@ -1,20 +1,20 @@
-import { HTML } from '../libs/afrontend/index.js'
-import { nInput } from './input.js'
-import { nLabel } from './label.js'
+import { HTML, nLabel, nInput } from '../libs/afrontend/index.js'
 
 export class InputComponent extends HTML {
   state = {
     label: '',
     value: [],
+    type: 'text',
   }
 
   label = new nLabel()
   input = new nInput()
 
-  constructor(label, value = []) {
+  constructor({ label, value = [], type = 'text' } = {}) {
     super()
     this.state.label = label
     this.state.value = value
+    this.state.type = type
   }
 
   onCreate() {
@@ -30,6 +30,7 @@ export class InputComponent extends HTML {
   }
 
   getInput() {
+    this.input.setAttr('type', this.state.type)
     this.input.setValue(this.state.value)
     return this.input
   }

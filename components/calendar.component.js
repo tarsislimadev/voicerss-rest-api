@@ -1,8 +1,8 @@
 import { HTML, nFlex } from '../libs/afrontend/index.js'
-import { SelectComponent } from './components/select.component.js'
-import { ButtonComponent } from './components/button.component.js'
-import { monthName } from './utils/calendar.js'
-import { padLeft } from './utils/str.js'
+import { SelectComponent } from './select.component.js'
+import { ButtonComponent } from './button.component.js'
+import { monthName } from '../utils/calendar.js'
+import { padLeft } from '../utils/str.js'
 
 export class CalendarComponent extends HTML {
   year = new SelectComponent()

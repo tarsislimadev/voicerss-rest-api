@@ -7,6 +7,7 @@ export class AudioMessageComponent extends MessageComponent {
     super.onCreate()
     this.append(this.getTextComponent())
     this.append(this.getAudioComponent())
+    this.append(this.getLanguageComponent())
   }
 
   getTextComponent() {
@@ -14,6 +15,10 @@ export class AudioMessageComponent extends MessageComponent {
   }
 
   getAudioComponent() {
-    return new nAudio(this.message.url)
+    return new nAudio({ src: this.message.url })
+  }
+
+  getLanguageComponent() {
+    return new TextComponent({ text: this.message.language })
   }
 }

@@ -4,7 +4,7 @@ export class SelectGroupComponent extends nSelectGroup {
   text = ''
   values = []
 
-  constructor(text = '', values = []) {
+  constructor({ text = '', values = [] } = {}) {
     super()
     this.text = text
     this.values = values

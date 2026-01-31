@@ -4,7 +4,7 @@ export class UpdatableTextComponent extends HTML {
   name = ''
   onUpdateText = (() => { })
 
-  constructor(name, onUpdateText = (() => { })) {
+  constructor({ name, onUpdateText = (() => { }) } = {}) {
     super()
     this.name = name
     this.onUpdateText = onUpdateText

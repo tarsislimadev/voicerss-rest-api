@@ -4,7 +4,7 @@ import { MessageModel } from '../models/message.model.js'
 export class MessagesComponent extends HTML {
   messages = []
 
-  constructor(messages = []) {
+  constructor({ messages = [] } = {}) {
     super()
     this.messages = messages
   }

@@ -8,7 +8,7 @@ export class SelectComponent extends HTML {
     values: [],
   }
 
-  constructor(label, values = []) {
+  constructor({ label, values = [] } = {}) {
     super()
     this.state.label = label
     this.state.values = values

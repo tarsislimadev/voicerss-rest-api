@@ -7,7 +7,7 @@ export class TopComponent extends HTML {
     url: '',
   }
 
-  constructor(url = '') {
+  constructor({ url = '' } = {}) {
     super()
     this.state.url = url
   }

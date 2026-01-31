@@ -1,7 +1,7 @@
 import { HTML, nInput } from '../libs/afrontend/index.js'
 
 export class DateTimeGroupComponent extends nInput {
-  constructor(text, value = Date.now()) {
+  constructor({ text, value = Date.now() } = {}) {
     super(text, value, 'datetime-local')
   }
 

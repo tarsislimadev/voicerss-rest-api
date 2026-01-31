@@ -11,7 +11,7 @@ class ProjectModel {
 class ProjectThumbnailComponent extends BootstrapCardComponent {
   project = new ProjectModel()
 
-  constructor(project = {}) {
+  constructor({ project = {} } = {}) {
     super()
     this.project = project
   }

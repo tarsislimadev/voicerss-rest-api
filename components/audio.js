@@ -1,7 +1,7 @@
 import { HTML } from '../libs/afrontend/index.js'
 
 export class nAudio extends HTML {
-  constructor(src) {
+  constructor({ src } = {}) {
     super()
     this.setSrc(src)
     this.setAttr('controls', '')

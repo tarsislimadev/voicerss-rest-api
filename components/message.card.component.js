@@ -10,7 +10,7 @@ import * as str from './utils/str.js'
 export class MessageCardComponent extends CardComponent {
   message = new MessageModel()
 
-  constructor(message = new MessageModel()) {
+  constructor({ message = new MessageModel() } = {}) {
     super()
     this.message = message
   }

@@ -3,7 +3,7 @@ import { nTr, nTd } from '../libs/afrontend/index.js'
 export class TableLineComponent extends nTr {
   cols = []
 
-  constructor(cols = []) {
+  constructor({ cols = [] } = {}) {
     super()
     this.cols = cols
   }

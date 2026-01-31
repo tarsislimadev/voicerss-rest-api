@@ -1,6 +1,6 @@
 import { HTML, nTable, nTr, nTd } from '../libs/afrontend/index.js'
 import { TextComponent } from './text.component.js'
-import { TableColumnComponent } from './components/table.column.component.js'
+import { TableColumnComponent } from './table.column.component.js'
 
 class TableHeaderComponent extends HTML {
   getTagName() { return 'thead' }
@@ -18,7 +18,7 @@ export class TableComponent extends nTable {
   head = new TableHeaderComponent()
   body = new TableBodyComponent()
 
-  constructor(headers = []) {
+  constructor({ headers = [] } = {}) {
     super()
     this.headers = headers.length ? headers : Object.keys(this.data?.[0] || {})
   }
