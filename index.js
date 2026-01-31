@@ -28,13 +28,19 @@ export class Page extends PageComponent {
 
   getHeader() {
     return new TwoColumnsComponent({
-      html1: new ImageLinkComponent({ src: './logo.png', href: 'https://voicerss.org/' }),
+      html1: new ImageLinkComponent({
+        src: './logo.png',
+        href: 'https://voicerss.org/'
+      }),
       html2: new HTML(),
     })
   }
 
   getBody() {
-    return new TwoColumnsComponent({ html1: this.getForm(), html2: this.getMessages() })
+    return new TwoColumnsComponent({
+      html1: this.getForm(),
+      html2: this.getMessages()
+    })
   }
 
   getForm() {
@@ -42,7 +48,10 @@ export class Page extends PageComponent {
     form.append(this.getSrcInput())
     form.append(this.getKeyInput())
     form.append(this.getLanguageSelect())
-    form.append(new ButtonComponent({ text: 'send', onclick: () => this.onSendButtonClick() }))
+    form.append(new ButtonComponent({
+      text: 'send',
+      onclick: () => this.onSendButtonClick()
+    }))
     return form
   }
 
@@ -55,7 +64,7 @@ export class Page extends PageComponent {
   }
 
   getLanguageSelect() {
-    Array.from(getLanguages()).map((l) => this.language_select.input.addOption(l, l))
+    Array.from(getLanguages()).map((l) => this.language_select.select.addOption(l, l))
     return this.language_select
   }
 
@@ -64,16 +73,15 @@ export class Page extends PageComponent {
   }
 
   addAudioMessage() {
-    const key = this.key_input.getValue()
+    const search = new URLSearchParams()
     const src = this.src_input.getValue()
+    search.set('src', src)
+    search.set('key', this.key_input.getValue())
     const hl = this.language_select.getValue()
-    const search = new URLSearchParams({ key, src, hl })
-    const url = this.getUrl({ search })
-    this.addMessage(new AudioMessageModel(url, src))
-  }
-
-  getUrl({ search } = {}) {
-    return `http://api.voicerss.org/?${search.toString()}`
+    search.set('hl', hl)
+    const url = 'http://api.voicerss.org/?' + search.toString()
+    console.log({ url, src })
+    this.addMessage(new AudioMessageModel({ url, text: src, language: hl }))
   }
 
   addMessage(message = new MessageModel()) {
@@ -82,7 +90,7 @@ export class Page extends PageComponent {
 
   parseMessage(message = new MessageModel()) {
     if (message.type = 'audio') {
-      return new AudioMessageComponent(message)
+      return new AudioMessageComponent({ message })
     }
 
     return new TextComponent({ text: message.type })

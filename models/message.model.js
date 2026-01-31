@@ -4,7 +4,7 @@ export class MessageModel extends Model {
   type = null
   text = ''
 
-  constructor(text = '') {
+  constructor({ text = '' } = {}) {
     super()
     this.text = text
   }
